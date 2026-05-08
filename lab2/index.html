@@ -3,15 +3,50 @@
 
 <head>
 	<title>Lab 2 start page</title>
+	<style>
+		body {
+			background-color: orange; /* 2a */
+		}
+
+		.listA {
+			border: 2px solid black; /* 2b */
+			width: fit-content;
+			font-family: Arial, sans-serif; /* 2c */
+			background-color: #ffd27f;
+			margin-bottom: 20px;
+		}
+
+		.listB {
+			border: 2px solid black; /* 2b */
+			width: fit-content;
+			font-family: "Courier New", monospace; /* 2c */
+			background-color: #ffcc66;
+			margin-bottom: 20px;
+		}
+
+		.fat-paragraph {
+			border: 6px solid black; /* 2d */
+			width: fit-content;
+			background-color: #fff2cc;
+		}
+
+		a:hover {
+			color: red; /* 2e extra effect */
+		}
+	</style>
 </head>
 
 <body>
 	<h1>Lab 2</h1>
-	<p> Make sure you have started Apache Tomcat and access them over the
-	<pre>http://</pre> protocol scheme, otherwise pages may not work. </p>
+
+	<p class="fat-paragraph">
+		Make sure you have started Apache Tomcat and access them over the
+		<pre>http://</pre>
+		protocol scheme, otherwise pages may not work.
+	</p>
 
 	<h2>Part A: Styling examples</h2>
-	<ol>
+	<ol class="listA">
 		<li>
 			Link to <a href="./styling/style1">style1 example</a>
 		</li>
@@ -24,25 +59,19 @@
 	</ol>
 
 	<h2>Part B: Interaction examples</h2>
-	<ol>
-
+	<ol class="listB">
 		<li>
-			Link to modified example in chapter 4 of book by Purewal: <a href="./interaction/add2dom/index.html">adding
-				comments to a list</a>
+			Link to modified example in chapter 4 of book by Purewal:
+			<a href="./interaction/add2dom/index.html">adding comments to a list</a>
 		</li>
 		<li>
 			Link to <a href="./interaction/placenames/">placenames app (with GeoNames web service)</a>
 		</li>
 		<li>
-			Link to <a href="./interaction/placenamesAndMore/">placenamesAndMore app (with two more web
-				services)</a>
+			Link to <a href="./interaction/placenamesAndMore/">placenamesAndMore app (with two more web services)</a>
 		</li>
-
-
 	</ol>
 
 	<br>
-
 </body>
-
 </html>

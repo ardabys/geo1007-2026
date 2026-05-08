@@ -75,6 +75,12 @@ var allFunctions = function () {
       document.querySelector("main .messages").innerHTML = "";
       document.querySelector("main .forDebug").innerHTML = "";
 
+      document.querySelector("main .mapDiv").innerHTML = "";
+      document.querySelector("main .forDebug2").innerHTML = "";
+      document.querySelector("main .messages2").innerHTML = "";
+      document.querySelector("#xmlDataAsTable").innerHTML = "";
+
+
       getPlacenames_plain_javascript(postalcodeInput, countryInput);
     } else {
       alert("Enter (first part of) postal code");

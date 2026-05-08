@@ -47,12 +47,13 @@ var map = L.map("map-canvas", {
 
 // 2. aerial photo * not working at this moment (see Assignment)
 //    - can be switched on/off by toggle thru L.control.layers (see below in this script)
-var wms_aerial_url = "https://geodata1.nationaalgeoregister.nl/luchtfoto/wms?";
+var wms_aerial_url = "https://service.pdok.nl/hwh/luchtfotorgb/wms/v1_0?";
+
 var basemap_aerial = new L.tileLayer.wms(wms_aerial_url, {
-  layers: ["luchtfoto_png"],
+  layers: ["Actueel_ortho25"],
   styles: "",
   format: "image/png",
-  transparent: true,
+  transparent: false,
   pointerCursor: true,
 });
 basemap_aerial.getAttribution = function () {
@@ -71,8 +72,45 @@ var sound = new L.tileLayer.wms(wms_sound_url, {
   pointerCursor: true,
 });
 
+// 4. parcels WMS layer from GeoServer
+var wms_parcels_url = "http://localhost:8080/geoserver/wms?";
+
+var parcels = new L.tileLayer.wms(wms_parcels_url, {
+  layers: "ne:parcels",
+  styles: "",
+  format: "image/png",
+  transparent: true,
+  pointerCursor: true,
+});
+
+// 5. TOP10NL WMS layers from GeoServer
+var wms_top10nl_url = "http://localhost:8080/geoserver/wms?";
+
+var top10nl = new L.tileLayer.wms(wms_top10nl_url, {
+  layers: ["ne:GEBOUW_VLAK", "ne:WATERDEEL_VLAK"],
+  styles: ["gebouw_vlak", "waterdeel_vlak"],
+  format: "image/png",
+  transparent: true,
+  pointerCursor: true,
+});
+
+// PDOK layer
+var wms_pdok_url = "https://service.pdok.nl/brt/top10nl/wms/v1_0?";
+
+var pdok_top10nl = new L.tileLayer.wms(wms_pdok_url, {
+  layers: ["gebouw", "waterdeel"],
+  styles: ["default", "default"],
+  format: "image/png",
+  transparent: true,
+  attribution: '© PDOK / Kadaster',
+  pointerCursor: true,
+});
+
 var overlays = {
   "Road noise [WMS]": sound,
+  "Parcels [WMS]": parcels,
+  "TOP10NL [WMS]": top10nl,
+  "PDOK TOP10NL [WMS]": pdok_top10nl,
 };
 
 var baseLayers = {
